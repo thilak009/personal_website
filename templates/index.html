@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1 class="title">
+  Namaste
+</h1>
+<p>
+    Hello, I'm thilak, Software Developer by profession working at 
+    <a href="https://setu.co" rel="noopener noreferrer" target="_blank">Setu</a>.
+    Amateur runner discovering all kinds of ways to have pain in legs :)
+</p>
+<p>
+    My recent interest for a hobby has been bouldering, thanks to moving to bangalore, i got into the sport
+    and you can find me at Equilibrium Climbing, Indiranagar almost every weekend :)
+</p>
+<p>
+    This is the place on the internet where i write for strangers to read. This is my personal
+    website so i intend to write on any radom thing that i feel like from personal experiences to
+    tech and something that i found or did. 
+</p>
+<p>
+    You can find my writing <a href="{{ get_url(path='@/posts/_index.md') }}">here</a>.
+</p>
+{% endblock content %}

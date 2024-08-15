@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1 class="title">
+  {{ page.title }}
+</h1>
+<div class="meta">
+  {%- if page.date %}
+  <div class="post-date">
+    <i>
+        <time datetime='{{ page.date | date(format='%+') }}' pubdate>
+            {{- page.date | date(format=config.extra.date_format) -}}
+        </time>
+    </i>
+  </div>
+  <div class="reading-time">
+      {% set word_count = page.content | split(pat=" ") | length %}
+      {% set reading_time = (word_count / 250) | round %}
+      <i>{{ reading_time }} minutes ({{ word_count }} words)</i>
+  </div>
+  {%- endif %}
+</div>
+<main>
+  {{ page.content | safe }}
+</main>
+{% endblock content %}

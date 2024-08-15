@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1 class="title">
+  {{ section.title }}
+</h1>
+<ul class="blog-posts">
+  <!-- If you are using pagination, section.pages will be empty. You need to use the paginator object -->  
+  {% for page in section.pages %}
+    <li>
+      <span>
+        <i>
+          <time datetime='{{ page.date | date(format='%+') }}' pubdate>
+            {{ page.date | date(format=config.extra.date_format) }}
+          </time>
+        </i>
+      </span>
+      <a href="{{ page.permalink | safe }}">{{ page.title }}</a>
+    </li>
+    {% else %}
+    <li>
+      No posts yet
+    </li>
+  {% endfor %}
+</ul>
+{% endblock content %}
